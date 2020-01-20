@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+	crossorigin="anonymous"></script>
+
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+	crossorigin="anonymous"></script>
+
+
+<meta charset="UTF-8" />
+<title>Rover Image Search</title>
+
+</head>
+<div class="container-fluid">
+  <h1>Mars Rover Image Search</h1>
+  <form th:action="@{/}" th:object="${roverPhotoForm}" method="post">
+
+	<div>
+		<label>Date:</label> 
+		<input type="text" th:field="*{date}"
+			placeholder="yyyy-MM-dd" />
+	</div>
+	<div>
+		<label>Rover:</label> 
+		<select th:field="*{rover}">
+	    <option th:value="'Curiosity'" th:text="Curiosity"></option>
+	    <option th:value="'Opportunity'" th:text="Opportunity"></option>
+	    <option th:value="'Spirit'" th:text="Spirit"></option>
+	</select>
+	</div>
+	<div>
+		<label>Camera:</label> 
+		<select th:field="*{camera}">
+	    <option th:value="'FHAZ'" th:text="FHAZ"></option>
+	    <option th:value="'RHAZ'" th:text="RHAZ"></option>
+	    <option th:value="'NAVCAM'" th:text="NAVCAM"></option>
+	</select>
+	</div>
+	<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+
+<span  th:if="${photoUrl != null}" /><img th:src="${photoUrl}" /></span>
+
+ 		
+
+</div>
+
+
+
+
+
+
+
+</html>
